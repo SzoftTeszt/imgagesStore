@@ -83,16 +83,27 @@ loadProducts(){
     )
   }
 
-  pushImage(file:any){
+  deleteProductImage(url:any){
+    this.storage.refFromURL(url).delete().subscribe(
+      (res)=>console.log("Sikeres törlés")
+    )
+  }
+
+  pushImage(products:any,file:any){
+    console.log("Base", products, file)
     const fullPath=this.basePath+"/"+file.name
     const storegeRef= this.storage.ref(fullPath)
     const uploadTask=this.storage.upload(fullPath,file)
     uploadTask.snapshotChanges().pipe(
       finalize(
         ()=>{
-          storegeRef.getDownloadURL().subscribe(
+          return storegeRef.getDownloadURL()
+          .subscribe(
             (url)=>{
-             this.urlSubject.next(url)              
+             this.urlSubject.next(url) 
+             console.log(products.urlImages)
+             products.imagesUrl.push(url)
+             this.updateProduct(products)
             }
           )
       }

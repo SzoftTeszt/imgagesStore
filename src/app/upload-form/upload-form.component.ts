@@ -32,14 +32,14 @@ export class UploadFormComponent {
     this.percentage=0
   }
   uploadFile(){   
-    this.upload=true
-    Array.from(this.selectedFile).forEach((element:any) => {
-      this.base.pushImage(element).subscribe(
-        (res)=>{
-          console.log(res,"%")
-          this.percentage=Math.round(Number(res))
-        })
-    }) 
+    // this.upload=true
+    // Array.from(this.selectedFile).forEach((element:any) => {
+    //   this.base.pushImage(element).subscribe(
+    //     (res)=>{
+    //       console.log(res,"%")
+    //       this.percentage=Math.round(Number(res))
+    //     })
+    // }) 
   }
 
 

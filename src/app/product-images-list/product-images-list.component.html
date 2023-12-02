@@ -1,11 +1,23 @@
 <!-- {{urls|json}} -->
 <div *ngIf="urls" class="imagescontainer">
+    <div class="text-center my-2">
+        <button  (click)="deleteFile(urls[viewIndex])" type="button" class="btn btn-primary my-3">Törlés</button>
+    </div>
     <div class="bigimg">
         <img [src]="urls[viewIndex]" alt="...">
     </div>
     <div class="tape">
         <span *ngIf="aktIndex>0" (click)="left()" class="left"></span>
-        <img (click)="imageChange(i)" *ngFor="let url of viewImages; let i=index" [src]="url" alt="...">
+        <img (mouseover)="imageChange(i)" (click)="imageChange(i)" *ngFor="let url of viewImages; let i=index" [src]="url" alt="...">
         <span *ngIf="this.aktIndex+5<=this.urls.length" (click)="right()" class="right"></span>
+    </div>
+</div>
+<div>
+    <div class="mt-2">
+        <!-- <label for="formFile" class="form-label">Default file input example</label> -->
+        <input  multiple (change)="selectFile($event)" class="form-control" type="file" id="formFile">
+    </div>
+    <div class="mt-2 text-center">
+        <button  (click)="uploadFile()" [disabled]="!selectedFile" type="button" class="btn btn-primary my-3">Kép feltöltés</button>
     </div>
 </div>
