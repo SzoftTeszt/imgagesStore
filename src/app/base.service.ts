@@ -90,6 +90,8 @@ loadProducts(){
   }
 
   pushImage(products:any,file:any){
+
+
     console.log("Base", products, file)
     const fullPath=this.basePath+"/"+file.name
     const storegeRef= this.storage.ref(fullPath)
@@ -101,7 +103,8 @@ loadProducts(){
           .subscribe(
             (url)=>{
              this.urlSubject.next(url) 
-             console.log(products.urlImages)
+            if (!products.imagesUrl) products.imagesUrl=[]
+             console.log(products.imagesUrl)
              products.imagesUrl.push(url)
              this.updateProduct(products)
             }

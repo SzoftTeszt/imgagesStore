@@ -1,6 +1,6 @@
 <!-- {{urls|json}} -->
 <div *ngIf="urls" class="imagescontainer">
-    <div class="text-center my-2">
+    <div *ngIf="admin"class="text-center my-2">
         <button  (click)="deleteFile(urls[viewIndex])" type="button" class="btn btn-primary my-3">Törlés</button>
     </div>
     <div class="bigimg">
@@ -12,7 +12,7 @@
         <span *ngIf="this.aktIndex+5<=this.urls.length" (click)="right()" class="right"></span>
     </div>
 </div>
-<div>
+<div *ngIf="admin">
     <div class="mt-2">
         <!-- <label for="formFile" class="form-label">Default file input example</label> -->
         <input  multiple (change)="selectFile($event)" class="form-control" type="file" id="formFile">

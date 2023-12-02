@@ -39,7 +39,7 @@ export class ProductsListComponent {
     termek.imagesUrl=termek.imagesUrl.filter(
       (e:any)=>{return e!=event.url}
      )
-
+     if (!termek.imagesUrl)  termek.imagesUrl=[]
      this.base.deleteProductImage(event.url)
      this.base.updateProduct(termek)
 
