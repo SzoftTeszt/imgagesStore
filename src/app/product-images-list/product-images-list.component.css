@@ -1,0 +1,30 @@
+img{
+    max-width: 100%;
+}
+.tape{
+    position: relative;
+}
+.tape>img{
+    max-width: 25%;
+    user-select: none;
+   
+}
+
+.tape>span:hover{
+    display:inline-block;
+    background-color: rgba(0,0,0,.3);
+}
+
+.tape>span{
+    border-radius: 5px;
+    position: absolute;
+    top:10px;
+    bottom:10px;
+    min-width: 10px;
+    background-color: rgba(0,0,0,0.001);
+
+}
+.tape>span.right{
+    right:0;
+    bottom:10px;
+}

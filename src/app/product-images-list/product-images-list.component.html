@@ -1,0 +1,11 @@
+<!-- {{urls|json}} -->
+<div *ngIf="urls" class="imagescontainer">
+    <div class="bigimg">
+        <img [src]="urls[viewIndex]" alt="...">
+    </div>
+    <div class="tape">
+        <span *ngIf="aktIndex>0" (click)="left()" class="left"></span>
+        <img (click)="imageChange(i)" *ngFor="let url of viewImages; let i=index" [src]="url" alt="...">
+        <span *ngIf="this.aktIndex+5<=this.urls.length" (click)="right()" class="right"></span>
+    </div>
+</div>

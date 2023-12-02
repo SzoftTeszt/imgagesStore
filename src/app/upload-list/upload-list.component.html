@@ -1,0 +1,26 @@
+<!-- {{files|json}} -->
+
+<!-- <div *ngFor="let f of files" class="row my-2">
+    <div class="col-4">
+        <a [href]="f.url">{{f.name}}</a>
+    </div>
+    <div class="col-2">
+        <button (click)="deleteFile(f)" type="button" class="btn btn-primary btn-sm">Delete</button>
+    </div>
+</div> -->
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let f of files" class="col">
+      <div class="card h-100">
+        <img [src]="f.url" class="card-img-top" [alt]="f.name">
+        <div class="card-body">
+          <h5 class="card-title">{{f.name}}</h5>         
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">
+            <button (click)="deleteFile(f)" type="button" class="btn btn-primary btn-sm">Delete</button>
+          </small>
+        </div>
+      </div>
+    </div>
+</div>

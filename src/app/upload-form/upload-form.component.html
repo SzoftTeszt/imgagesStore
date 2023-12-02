@@ -1,0 +1,29 @@
+{{newProduct|json}}
+<div class="row mb-3">
+
+    <div class="form-floating mb-3">
+        <input [(ngModel)]="newProduct.name" type="text" class="form-control" id="floatingInput" >
+        <label for="floatingInput">Name</label>
+      </div>
+      <div class="form-floating">
+        <input [(ngModel)]="newProduct.price" type="number" class="form-control" id="floatingPassword" >
+        <label for="floatingPassword">Price</label>
+      </div>
+
+
+    <div class="col-6">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input  multiple (change)="selectFile($event)" class="form-control" type="file" id="formFile">
+    </div>
+    <div class="col-2 mt-3">
+        <button  (click)="uploadFile()" [disabled]="!selectedFile" type="button" class="btn btn-primary my-3">Kép feltöltés</button>
+    </div>
+    
+</div>
+<button  (click)="addProduct()"  type="button" class="btn btn-primary my-3">Mentés</button>
+
+<div *ngIf="upload" class="row">
+    <div class="progress" role="progressbar" aria-label="Animated striped example" [attr.aria-valuenow]="percentage" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width':percentage+'%'}"></div>
+      </div>
+</div>

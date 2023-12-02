@@ -1,0 +1,23 @@
+<!-- {{products|json}} -->
+
+<div *ngFor="let aru of products" class="row">
+    <div  class="col-3">
+        <input [(ngModel)]="aru.name" type="text" class="form-control">
+       
+    </div>
+    <div  class="col-2">
+        <input [(ngModel)]="aru.price" type="number" class="form-control">       
+    </div>
+    <div *ngFor="let kep of aru.imagesUrl" class="col">
+        <a [href]="kep">
+        <img  [src]="kep" class="img-thumbnail" alt="termék kép" style="width:100px; height:100px">
+        </a>
+        <button  (click)="deleteImage(aru,kep)" type="button" class="btn btn-primary my-3">Del</button>
+    </div>
+    <div class="col-2">
+        <button  (click)="updateProduct(aru)" type="button" class="btn btn-primary my-3">Save</button>
+        <button  (click)="deleteProduct(aru)" type="button" class="btn btn-primary my-3">Delete</button>
+    </div>
+     
+
+</div>
